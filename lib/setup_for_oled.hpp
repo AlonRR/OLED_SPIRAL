@@ -1,5 +1,8 @@
 #include <U8g2lib.h>
 
+#ifndef SETUP_FOR_OLED_HPP
+#define SETUP_FOR_OLED_HPP
+
 class U8G2_SSD1315_128X64_NONAME_F_HW_I2C : public U8G2
 {
 public:
@@ -15,7 +18,7 @@ public:
             u8x8_byte_arduino_hw_i2c, u8x8_gpio_and_delay_arduino);
         u8x8_SetPin_HW_I2C(getU8x8(), reset, clock, data);
     }
-    bool start(void)
+    bool begin(void) // This overrides the begin method in U8G2
     {
 /* note: call to u8x8_utf8_init is not required here, this is done in the setup procedures before */
 #ifndef U8G2_USE_DYNAMIC_ALLOC
@@ -33,3 +36,5 @@ public:
 #endif
     }
 };
+
+#endif // SETUP_FOR_OLED_HPP
