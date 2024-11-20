@@ -18,7 +18,6 @@ void setup(void)
 void loop(void)
 {
   u8g2Spiral.DrawSpiral(10);
-  delay(1000);
   u8g2Spiral.clearBuffer();
   u8g2Spiral.sendBuffer();
 }
